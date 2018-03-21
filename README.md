@@ -1,4 +1,5 @@
-###Task description
+### Task description
+
 We have simple dashboard with two routes: register and dashboard(protected)
 One form with 3 fields firstName, lastName, and age(optional)
 On register page we create user and we have ability to update user information on dashboard page
