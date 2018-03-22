@@ -8,4 +8,5 @@ On register page we create user and we have ability to update user information o
 2. Fix userGuard for dashboard route (must be protected until user not create account)
 3. Fix display user data on dashboard page 
 4. Add prefill data for update form
+5. Add basic validation with error messages
  
