@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 import { UserModule } from "./user/user.module";
 import { routing } from "./app.router";
 import { RegisterComponent } from "./register/register.component";
+import {UserService} from './user/user.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { RegisterComponent } from "./register/register.component";
     UserModule,
     routing,
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

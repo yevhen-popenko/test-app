@@ -3,6 +3,7 @@
   <div class="form-group">
     <label for="fname">Name</label>
     <input id="fname" type="text" class="form-control" formControlName="firstName">
+    <div *ngIf="form.controls.firstName.invalid && form.controls.firstName.dirty">firsName is invalid</div>
   </div>
   <div class="form-group">
     <label for="lname">Name</label>

@@ -1,6 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { UserService } from "./user.service";
-import { Observable } from "rxjs/Observable";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import { UserService } from './user.service';
+import { Observable } from 'rxjs/Observable';
+import {FormBuilder} from '@angular/forms';
+import {FormComponent} from '../shared/form.component';
 
 @Component({
   selector: 'app-user-page',
@@ -22,6 +24,7 @@ export class UserPageComponent implements OnInit {
   user;
   error = null;
   user$: Observable<any>;
+  @ViewChild('form') form: FormComponent;
 
   constructor(
     private userService: UserService,
@@ -30,7 +33,7 @@ export class UserPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUser().subscribe(data => {
+    this.user$.subscribe(data => {
       this.user = data;
     });
   }
@@ -41,6 +44,6 @@ export class UserPageComponent implements OnInit {
   submit(event) {
     this.userService.updateUser(event).subscribe(data => {
       this.editMode = false;
-    }, error => this.error = error)
+    }, error => this.error = error);
   }
 }
