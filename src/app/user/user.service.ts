@@ -5,7 +5,9 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
 @Injectable()
 export class UserService {
   private subject = new BehaviorSubject({});
-  constructor() {}
+
+  constructor() {
+  }
 
   getUser() {
     return this.subject;

@@ -25,9 +25,10 @@ export class RegisterComponent implements OnDestroy {
   ) {
     this.user$ = userService.getUser().subscribe((data: any) => {
       console.log(data);
-      if (data && data.firstName)
-        this.router.navigate(['dashboard'])
-    })
+      if (data && data.firstName) {
+        this.router.navigate(['dashboard']);
+      }
+    });
   }
 
   ngOnDestroy() {
