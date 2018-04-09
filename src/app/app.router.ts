@@ -5,7 +5,7 @@ import { UserGuard } from './components/user/user.guard';
 
 const routes: Route[] = [
   { path: 'register', component: RegisterComponent },
-  { loadChildren: 'app/dashboard/dashboard.module#DashboardModule', path: 'dashboard', canActivate: [UserGuard]},
+  { loadChildren: 'app/components/dashboard/dashboard.module#DashboardModule', path: 'dashboard', canActivate: [UserGuard]},
   { path: '**', redirectTo: 'register'}
 
 ];

@@ -13,8 +13,7 @@ import { Observable } from 'rxjs/Observable';
       <div>firstName: {{user.firstName}}</div>
       <div>lastName: {{user.lastName}}</div>
       <div>age: {{user.age}}</div>
-      <button (click)="setEditMode()" class="btn btn-secondary">Edit Button</button>
-      <h1>User from service: </h1>
+      <button (click)="setEditMode()" class="btn btn-secondary">Edit</button>
     </ng-template>
   `
 })
