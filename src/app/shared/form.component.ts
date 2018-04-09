@@ -21,7 +21,11 @@ export class FormComponent {
   }
 
   onSubmit() {
+    this.form.patchValue( {
+
+    });
     if (this.form.valid) {
+      console.log('user', this.form.value);
       this.sendSubmit.emit(this.form.value);
     }
   }

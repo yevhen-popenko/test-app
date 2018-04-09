@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { UserService } from "../user/user.service";
+import { UserService } from "../../core/user.service";
 import { Router } from "@angular/router";
 import { ISubscription } from "rxjs/Subscription";
 
@@ -21,13 +21,12 @@ export class RegisterComponent implements OnDestroy {
 
   constructor(
     private userService: UserService,
-    private router: Router
-  ) {
+    private router: Router) {
     this.user$ = userService.getUser().subscribe((data: any) => {
-      console.log(data);
+      console.log('DATA1', data);
       if (data && data.firstName)
-        this.router.navigate(['dashboard'])
-    })
+        this.router.navigate(['dashboard']);
+    });
   }
 
   ngOnDestroy() {
