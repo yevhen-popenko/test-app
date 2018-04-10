@@ -1,10 +1,14 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { of } from 'rxjs/observable/of';
-import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+
 
 @Injectable()
 export class UserService {
+
   private subject = new BehaviorSubject({});
+
   constructor() {}
 
   getUser() {
@@ -12,13 +16,12 @@ export class UserService {
   }
 
   createUser(data) {
-
     this.subject.next(data);
-    return of({done: true})
+    return of({done: true});
   }
 
   updateUser(data) {
     this.subject.next(data);
-    return of({done: true})
+    return of({done: true});
   }
 }

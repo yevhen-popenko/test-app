@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { UserService } from "./user.service";
-import { Observable } from "rxjs/Observable";
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../core/user.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-user-page',
@@ -20,27 +20,26 @@ import { Observable } from "rxjs/Observable";
 export class UserPageComponent implements OnInit {
   editMode = false;
   user;
-  error = null;
+  error: any;
   user$: Observable<any>;
 
-  constructor(
-    private userService: UserService,
-  ) {
+  constructor(private userService: UserService) {
     this.user$ = this.userService.getUser();
   }
 
   ngOnInit() {
-    this.userService.getUser().subscribe(data => {
-      this.user = data;
-    });
+      this.userService.getUser().subscribe((data: any) => {
+        this.user = data;
+      }, error => this.error = error);
   }
 
   setEditMode() {
     this.editMode = true;
   }
+
   submit(event) {
     this.userService.updateUser(event).subscribe(data => {
       this.editMode = false;
-    }, error => this.error = error)
+    }, error => this.error = error);
   }
 }
