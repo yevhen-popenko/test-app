@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy } from '@angular/core';
 import { UserService } from '../../core/user.service';
-import { Router } from "@angular/router";
-import { ISubscription } from "rxjs/Subscription";
+import { Router } from '@angular/router';
+import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +17,7 @@ import { ISubscription } from "rxjs/Subscription";
 })
 export class RegisterComponent implements OnDestroy {
   private user$: ISubscription;
-  error = null;
+  error: any;
 
   constructor(private userService: UserService, private router: Router) {
     this.userNavigate();
@@ -25,10 +25,10 @@ export class RegisterComponent implements OnDestroy {
 
   userNavigate() {
     this.user$ = this.userService.getUser().subscribe((data: any) => {
-    console.log('DATA1', data);
-    if (data && data.firstName)
+    if (data && data.firstName)  {
       this.router.navigate(['dashboard']);
-    });
+    }
+    }, error => this.error = error);
   }
 
   ngOnDestroy() {

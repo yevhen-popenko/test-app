@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../core/user.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -20,19 +20,17 @@ import { Observable } from 'rxjs/Observable';
 export class UserPageComponent implements OnInit {
   editMode = false;
   user;
-  error = null;
+  error: any;
   user$: Observable<any>;
-
 
   constructor(private userService: UserService) {
     this.user$ = this.userService.getUser();
-    console.log('USER$', this.user$);
   }
 
   ngOnInit() {
       this.userService.getUser().subscribe((data: any) => {
         this.user = data;
-      });
+      }, error => this.error = error);
   }
 
   setEditMode() {

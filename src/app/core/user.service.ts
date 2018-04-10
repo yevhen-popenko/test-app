@@ -8,7 +8,6 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class UserService {
 
   private subject = new BehaviorSubject({});
-  public form;
 
   constructor() {}
 
@@ -25,12 +24,4 @@ export class UserService {
     this.subject.next(data);
     return of({done: true});
   }
-
-  // setFormValue(user, form) {
-  //   form.setValue({
-  //     firstName: user.firstName,
-  //     lastName: user.lastName,
-  //     age: user.age,
-  //   });
-  // }
 }
