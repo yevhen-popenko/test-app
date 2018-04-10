@@ -6,6 +6,7 @@ import { UserModule } from './components/user/user.module';
 import { routing } from './app.router';
 import { RegisterComponent } from './components/register/register.component';
 import { CoreModule } from './core/core.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,8 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     UserModule,
     CoreModule,

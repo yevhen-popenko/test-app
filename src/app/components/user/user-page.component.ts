@@ -1,4 +1,4 @@
-import {Component, OnInit, Optional} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { UserService } from '../../core/user.service';
 import { Observable } from 'rxjs/Observable';
 
@@ -23,6 +23,7 @@ export class UserPageComponent implements OnInit {
   error = null;
   user$: Observable<any>;
 
+
   constructor(private userService: UserService) {
     this.user$ = this.userService.getUser();
     console.log('USER$', this.user$);
@@ -30,7 +31,6 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
       this.userService.getUser().subscribe((data: any) => {
-        console.log('DATA', data);
         this.user = data;
       });
   }
