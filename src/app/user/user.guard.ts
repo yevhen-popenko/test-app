@@ -22,7 +22,7 @@ export class UserGuard implements CanActivate {
   }
 
   private checkUser() {
-      if (this.user) return true;
+      if (Object.keys(this.user).length > 0) return true;
       else {
         this.router.navigate(['/']);
         return false;
