@@ -3,10 +3,14 @@
   <div class="form-group">
     <label for="fname">Name</label>
     <input id="fname" type="text" class="form-control" formControlName="firstName">
+    <span *ngIf="!form.get('firstName').valid && form.get('firstName').touched"
+class="form-error">Please enter your first name.</span>
   </div>
   <div class="form-group">
     <label for="lname">Name</label>
     <input id="lname" type="text" class="form-control" formControlName="lastName">
+    <span *ngIf="!form.get('lastName').valid && form.get('lastName').touched"
+class="form-error">Please enter your last name.</span>
   </div>
   <div class="form-group">
     <label for="age">Age</label>
