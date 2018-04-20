@@ -15,10 +15,23 @@ export class FormComponent {
   @Output() sendSubmit: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder) {
+  }
+
+  ngOnInit() {
+    let firstName = '';
+    let lastName = '';
+    let age = 0;
+
+    if (this.data) {
+      firstName = this.data.firstName;
+      lastName = this.data.lastName;
+      age = this.data.age;
+    }
+
     this.form = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', Validators.required],
-      age: 0,
+      firstName: [firstName, [Validators.required]],
+      lastName: [lastName, Validators.required],
+      age: age,
     });
   }
 
