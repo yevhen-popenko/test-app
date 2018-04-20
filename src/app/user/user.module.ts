@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserPageComponent } from "./user-page.component";
 import { UserGuard } from "./user.guard";
@@ -12,6 +12,13 @@ import { SharedModule } from "../shared/shared.module";
   ],
   declarations: [UserPageComponent],
   exports: [UserPageComponent, SharedModule],
-  providers: [UserGuard, UserService]
+  providers: [UserGuard]
 })
-export class UserModule { }
+export class UserModule { 
+	static forRoot(): ModuleWithProviders {
+		return {
+			ngModule: UserModule,
+			providers: [UserService]
+		}
+	}
+}
