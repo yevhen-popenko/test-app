@@ -1,7 +1,7 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { UserService } from "../user/user.service";
-import { Router } from "@angular/router";
-import { ISubscription } from "rxjs/Subscription";
+import { Component, OnDestroy } from '@angular/core';
+import { UserService } from '../user/user.service';
+import { Router } from '@angular/router';
+import { ISubscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +11,7 @@ import { ISubscription } from "rxjs/Subscription";
         <div class="card-body">
             <app-form (sendSubmit)="submit($event)" [isEdit]="false" [error]="error"></app-form>
         </div>
-    </div>    
+    </div>
 </section>
   `
 })
@@ -25,9 +25,10 @@ export class RegisterComponent implements OnDestroy {
   ) {
     this.user$ = userService.getUser().subscribe((data: any) => {
       console.log(data);
-      if (data && data.firstName)
-        this.router.navigate(['dashboard'])
-    })
+      if (data && data.firstName) {
+        this.router.navigate(['dashboard']);
+      }
+    });
   }
 
   ngOnDestroy() {
