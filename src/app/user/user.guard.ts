@@ -1,8 +1,8 @@
-import { Injectable }     from '@angular/core';
-import { CanActivate, Router }    from '@angular/router';
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
-import { UserService } from "./user.service";
+import { UserService } from './user.service';
 
 @Injectable()
 export class UserGuard implements CanActivate {
@@ -11,10 +11,7 @@ export class UserGuard implements CanActivate {
     private router: Router,
     private userService: UserService,
   ) {
-    userService.getUser().subscribe(data => {
-      this.user = data;
-      console.log('GUARD: ', this.user);
-    });
+    userService.getUser().subscribe(data => this.user = data);
   }
 
   canActivate() {
@@ -22,10 +19,10 @@ export class UserGuard implements CanActivate {
   }
 
   private checkUser() {
-      if (this.user) return true;
-      else {
-        this.router.navigate(['/']);
-        return false;
-      }
+    if (this.user) {
+      return true;
+    }
+    this.router.navigate(['/']);
+    return false;
   }
 }

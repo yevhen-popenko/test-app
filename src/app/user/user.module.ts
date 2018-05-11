@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserPageComponent } from "./user-page.component";
-import { UserGuard } from "./user.guard";
-import { UserService } from "./user.service";
-import { SharedModule } from "../shared/shared.module";
+import { UserPageComponent } from './user-page.component';
+import { UserGuard } from './user.guard';
+import { UserService } from './user.service';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -11,7 +11,13 @@ import { SharedModule } from "../shared/shared.module";
     SharedModule,
   ],
   declarations: [UserPageComponent],
-  exports: [UserPageComponent, SharedModule],
-  providers: [UserGuard, UserService]
+  exports: [UserPageComponent, SharedModule]
 })
-export class UserModule { }
+export class UserModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: [UserService, UserGuard]
+    };
+  }
+}

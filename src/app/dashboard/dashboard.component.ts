@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +11,7 @@ import { Component } from "@angular/core";
             <app-user-page></app-user-page>
         </div>
     </div>
-    </div>  
+    </div>
 </section>
   `
 })

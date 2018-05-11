@@ -1,8 +1,8 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from "./dashboard.component";
-import { Route, RouterModule } from "@angular/router";
-import { UserModule } from "../user/user.module";
+import { DashboardComponent } from './dashboard.component';
+import { Route, RouterModule } from '@angular/router';
+import { UserModule } from '../user/user.module';
 
 const routes: Route[] = [
   {
