@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class FormComponent {
   form: FormGroup;
-  @Input() isEdit: boolean = true;
+  @Input() isEdit = true;
   @Input() error: any;
   @Input() data;
   @Output() sendSubmit: EventEmitter<any> = new EventEmitter<any>();
