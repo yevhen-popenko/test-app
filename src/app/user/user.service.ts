@@ -4,8 +4,10 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class UserService {
-  private subject = new BehaviorSubject(null).filter(value => value !== null) as BehaviorSubject<{}>;
-  constructor() {}
+  private subject = new BehaviorSubject(null);
+  constructor() {
+    console.log('user service initialized');
+  }
 
   getUser() {
     return this.subject;
