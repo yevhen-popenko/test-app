@@ -11,10 +11,7 @@ export class UserGuard implements CanActivate {
     private router: Router,
     private userService: UserService,
   ) {
-    userService.getUser().subscribe(data => {
-      this.user = data;
-      console.log('GUARD: ', this.user);
-    });
+    userService.getUser().subscribe(data => this.user = data);
   }
 
   canActivate() {
@@ -22,11 +19,10 @@ export class UserGuard implements CanActivate {
   }
 
   private checkUser() {
-    console.log(this.user);
     if (this.user) {
-        return true;
-      }
-      this.router.navigate(['/']);
-      return false;
+      return true;
+    }
+    this.router.navigate(['/']);
+    return false;
   }
 }

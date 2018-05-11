@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs/observable/of';
-import {Subject} from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class UserService {
-  private subject = new Subject();
+  private subject = new BehaviorSubject(null).filter(value => value !== null) as BehaviorSubject<{}>;
   constructor() {}
 
   getUser() {
