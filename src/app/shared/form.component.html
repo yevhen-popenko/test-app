@@ -3,10 +3,12 @@
   <div class="form-group">
     <label for="fname">First Name</label>
     <input id="fname" type="text" class="form-control" required formControlName="firstName">
+    <span class="text-danger" *ngIf="form.get('firstName').touched && form.get('firstName').invalid">First name is mandatory</span>
   </div>
   <div class="form-group">
     <label for="lname">Last name</label>
     <input id="lname" type="text" class="form-control" required formControlName="lastName">
+    <span class="text-danger" *ngIf="form.get('lastName').touched && form.get('lastName').invalid">Last name is mandatory</span>
   </div>
   <div class="form-group">
     <label for="age">Age</label>
@@ -17,5 +19,5 @@
     {{error}}
   </div>
   <!--disable button if not valid data-->
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
 </form>

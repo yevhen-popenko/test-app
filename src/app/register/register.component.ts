@@ -35,6 +35,10 @@ export class RegisterComponent implements OnDestroy {
   }
 
   submit(event) {
-    this.userService.createUser(event).subscribe(({ done }) => done && this.router.navigate(['dashboard']));
+    this.userService.createUser(event)
+      .subscribe(
+        ({ done }) => done && this.router.navigate(['dashboard']),
+          error => this.error = error
+      );
   }
 }
