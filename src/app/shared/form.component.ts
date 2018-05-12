@@ -30,8 +30,16 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.form.valid) {
-      this.sendSubmit.emit(this.form.value);
+    if (this.form.valid){
+      this.error = '';
+      return this.sendSubmit.emit(this.form.value);
     }
+    else
+      this.error =
+        Object
+          .entries(this.form.controls)
+          .filter(([, control]) => control.invalid)
+          .map(([name, control]) => `${name} is : ${Object.keys(control.errors).join(', ')}`)
+
   }
 }
