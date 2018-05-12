@@ -11,8 +11,7 @@ import { SharedModule } from "../shared/shared.module";
     SharedModule,
   ],
   declarations: [UserPageComponent],
-  exports: [UserPageComponent, SharedModule],
-  //providers: [UserGuard, UserService]
+  exports: [UserPageComponent, SharedModule]
 })
 export class UserModule {
 
