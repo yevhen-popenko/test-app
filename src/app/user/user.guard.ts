@@ -13,7 +13,6 @@ export class UserGuard implements CanActivate {
   ) {
     userService.getUser().subscribe(data => {
       this.user = data;
-      console.log('GUARD: ', this.user);
     });
   }
 
