@@ -12,7 +12,6 @@ export class UserService {
   }
 
   createUser(data) {
-
     this.subject.next(data);
     return of({done: true})
   }

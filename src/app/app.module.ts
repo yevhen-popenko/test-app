@@ -14,7 +14,7 @@ import { RegisterComponent } from "./register/register.component";
   imports: [
     BrowserModule,
     RouterModule,
-    UserModule,
+    UserModule.forRoot(),
     routing,
   ],
   providers: [],
